@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.jiangtj.utils</groupId>
 	<artifactId>api-core</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>api-core</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
@@ -47,9 +47,16 @@
 	<build>
 		<plugins>
 			<plugin>
+				<groupId>org.graalvm.buildtools</groupId>
+				<artifactId>native-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
+					<image>
+						<name>jiangtj/api-core:${project.version}</name>
+					</image>
 					<excludes>
 						<exclude>
 							<groupId>org.projectlombok</groupId>
