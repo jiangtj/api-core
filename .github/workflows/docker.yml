@@ -49,7 +49,7 @@ jobs:
         run: |
           mvn -Pnative \
           -Ddocker.image.name=ghcr.io/jiangtj/api-core \
-          -Ddocker.image.tags=${{ join( steps.meta.outputs.tags, ',' ) }} \
+          -Ddocker.image.tags=${{ join( fromJSON(steps.meta.outputs.json).tags, ',' ) }} \
           spring-boot:build-image
       - name: Push
         run: |
