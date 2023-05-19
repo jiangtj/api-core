@@ -13,9 +13,17 @@
 	<version>0.0.1</version>
 	<name>api-core</name>
 	<description>Demo project for Spring Boot</description>
+
+	<scm>
+		<url>https://github.com/jiangtj/api-core</url>
+	</scm>
+
 	<properties>
 		<java.version>17</java.version>
+		<docker.image.name>jiangtj/${project.artifactId}</docker.image.name>
+		<docker.image.tags>${docker.image.name}:latest</docker.image.tags>
 	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -55,7 +63,11 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
 					<image>
-						<name>jiangtj/api-core:${project.version}</name>
+						<name>${docker.image.name}</name>
+						<tags>${docker.image.tags}</tags>
+						<env>
+							<BP_OCI_SOURCE>${project.scm.url}</BP_OCI_SOURCE>
+						</env>
 					</image>
 					<excludes>
 						<exclude>
