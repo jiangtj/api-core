@@ -1,23 +1,15 @@
 package com.jiangtj.utils.apicore.address;
 
 import com.jiangtj.utils.apicore.JsonUtil;
-import io.netty.util.CharsetUtil;
-import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
-import org.springframework.web.reactive.function.client.WebClientResponseException;
-import org.springframework.web.reactive.function.server.RouterFunction;
-import org.springframework.web.reactive.function.server.RouterFunctions;
-import org.springframework.web.reactive.function.server.ServerResponse;
-import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
@@ -32,8 +24,11 @@ public class AddressService {
     private Map<String, List<Area>> areaMap = new ConcurrentHashMap<>();
     private Map<String, List<Street>> streetMap = new ConcurrentHashMap<>();
 
-    @Resource
-    private AddressConfiguration configuration;
+    private final AddressConfiguration configuration;
+
+    public AddressService (AddressConfiguration configuration) {
+        this.configuration = configuration;
+    }
 
 
     @Scheduled(fixedDelay = 1, timeUnit = TimeUnit.DAYS)
