@@ -2,6 +2,7 @@ package com.jiangtj.utils.apicore.address;
 
 import com.jiangtj.utils.apicore.JsonUtil;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.aot.hint.annotation.RegisterReflectionForBinding;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -36,6 +37,7 @@ public class AddressService {
         requestAddressData().block();
     }
 
+    @RegisterReflectionForBinding({Province.class, City.class, Area.class, Street.class})
     public Mono<Void> requestAddressData() {
         log.info("update Province data...");
         WebClient client = WebClient.builder()
