@@ -1,5 +1,5 @@
 # api-core
-就转换一些数据，顺便试试GitHub的容器注册
+一些通用的接口（自用）
 
 ### Run
 
@@ -7,6 +7,7 @@
 docker run -p 8066:8066 ghcr.io/jiangtj/api-core:latest
 ```
 
+自定义ADDR_BASE_URL
 ```shell
 export ADDR_BASE_URL = https://raw.githubusercontent.com/modood/Administrative-divisions-of-China/master/dist
 docker run --name api-core -p 8066:8066 \
