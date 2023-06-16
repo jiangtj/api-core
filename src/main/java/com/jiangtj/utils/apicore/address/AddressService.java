@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 
 @Slf4j
 @Service
-@RegisterReflectionForBinding({Province.class, City.class, Area.class, Street.class})
+@RegisterReflectionForBinding({Province.class, City.class, Area.class, Street.class, AddressInfo.class})
 public class AddressService {
 
     private List<Province> provinces = new ArrayList<>();
