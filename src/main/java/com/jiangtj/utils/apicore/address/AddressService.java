@@ -160,4 +160,16 @@ public class AddressService {
         }
         return new AddressInfo(province, city, area, street);
     }
+
+    public List<City> getCities() {
+        return cities;
+    }
+
+    public List<Area> getAreas() {
+        return areas;
+    }
+
+    public List<Street> getStreets() {
+        return streets;
+    }
 }
