@@ -1,16 +1,13 @@
 package com.jiangtj.utils.apicore.address;
 
-import io.netty.util.CharsetUtil;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.reactive.function.server.RouterFunction;
 import org.springframework.web.reactive.function.server.RouterFunctions;
 import org.springframework.web.reactive.function.server.ServerResponse;
 import reactor.core.publisher.Flux;
 
-import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.Collections;
 
 @Configuration
 public class AddressRouter {
@@ -44,6 +41,8 @@ public class AddressRouter {
                 addressService.getAreaMap().getOrDefault(request.pathVariable("code"), Collections.emptyList())))
             .GET("address/streets/{code}", request -> ServerResponse.ok().bodyValue(
                 addressService.getStreetMap().getOrDefault(request.pathVariable("code"), Collections.emptyList())))
+            .GET("address/{code}", request -> ServerResponse.ok().bodyValue(
+                addressService.getAddressInfo(request.pathVariable("code"))))
             .build();
     }
 }

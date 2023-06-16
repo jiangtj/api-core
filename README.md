@@ -20,7 +20,7 @@ docker run --name api-core -p 8066:8066 \
 
 ### Api
 
-- `${host}:8066/base64d?url=x` Base64解密，解密url地址的内容（假设url获取到时base64的内容，需要解密）
+- `base64d?url=x` Base64解密，解密url地址的内容（假设url获取到时base64的内容，需要解密）
 
 - `address/provinces` 省列表
 - `address/cities` 市列表
@@ -29,4 +29,5 @@ docker run --name api-core -p 8066:8066 \
 - `address/areas/{code}` 使用市code查询区
 - `address/streets` 街道列表
 - `address/streets/{code}` 使用区code查询街道
+- `address/{code}` 依据指定code，查询详情
 - `address/update` 触发省市区数据更新，默认https://github.com/modood/Administrative-divisions-of-China
