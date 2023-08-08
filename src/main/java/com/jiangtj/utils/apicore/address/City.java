@@ -1,4 +1,4 @@
 package com.jiangtj.utils.apicore.address;
 
-public record City(String code, String name, String provinceCode) {
+public record City(int code, String name, int provinceCode) {
 }
