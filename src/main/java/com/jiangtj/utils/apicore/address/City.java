@@ -1,4 +1,6 @@
 package com.jiangtj.utils.apicore.address;
 
-public record City(int code, String name, int provinceCode) {
+import java.io.Serializable;
+
+public record City(int code, String name, int provinceCode) implements Serializable {
 }
