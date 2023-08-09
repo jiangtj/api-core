@@ -12,9 +12,7 @@ public class MyRuntimeHints implements RuntimeHintsRegistrar {
     public void registerHints(RuntimeHints hints, ClassLoader classLoader) {
 
         // Register resources
-        hints.resources().registerPattern("address/provinces.txt");
-        hints.resources().registerPattern("address/cities.txt");
-        hints.resources().registerPattern("address/areas.txt");
+        hints.resources().registerPattern("address/*.csv");
 
         // Register serialization
         hints.serialization().registerType(Province.class);
