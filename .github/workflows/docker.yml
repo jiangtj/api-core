@@ -31,7 +31,7 @@ jobs:
         with:
           # list of Docker images to use as base name for tags
           images: |
-            ghcr.io/jiangtj/api-core
+            ghcr.io/jiangtj/api-core-native
           # generate Docker tags based on the following events/attributes
           tags: |
             type=schedule
@@ -48,10 +48,10 @@ jobs:
       - name: Build image
         run: |
           mvn -Pnative \
-          -Ddocker.image.name=ghcr.io/jiangtj/api-core \
+          -Ddocker.image.name=ghcr.io/jiangtj/api-core-native \
           -Ddocker.image.tags=${{ join( fromJSON(steps.meta.outputs.json).tags, ',' ) }} \
           spring-boot:build-image
       - name: Push
         run: |
-          docker push -a ghcr.io/jiangtj/api-core
+          docker push -a ghcr.io/jiangtj/api-core-native
 

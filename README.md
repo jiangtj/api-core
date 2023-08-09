@@ -21,6 +21,4 @@ docker run -p 8066:8066 ghcr.io/jiangtj/api-core:latest
 - `address/cities/{code}` 使用省code查询市
 - `address/areas` 区列表
 - `address/areas/{code}` 使用市code查询区
-- `address/streets` 街道列表
-- `address/streets/{code}` 使用区code查询街道
 - `address/{code}` 依据指定code，查询详情
