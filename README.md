@@ -4,7 +4,13 @@
 ### Run
 
 ```shell
-docker run -p 8066:8066 ghcr.io/jiangtj/api-core:latest
+docker run -p 8066:8066 -d ghcr.io/jiangtj/api-core:latest
+```
+
+也可以使用由GraalVM编译的原生镜像运行，占用内存更少
+
+```shell
+docker run -p 8066:8066 -d ghcr.io/jiangtj/api-core-native:latest
 ```
 
 ### Api
