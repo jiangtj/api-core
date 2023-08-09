@@ -12,6 +12,7 @@ import org.springframework.util.CollectionUtils;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -63,7 +64,7 @@ public class AddressService {
     public void initP() throws IOException {
         log.info("init province data...");
         ClassPathResource classPathResource = new ClassPathResource("address/provinces.csv");
-        Reader in = new InputStreamReader(classPathResource.getInputStream());
+        Reader in = new InputStreamReader(classPathResource.getInputStream(), StandardCharsets.UTF_8);
 
         Iterable<CSVRecord> records = csvFormat.parse(in);
         for (CSVRecord record : records) {
@@ -78,7 +79,7 @@ public class AddressService {
     public void initC() throws IOException {
         log.info("init city data...");
         ClassPathResource classPathResource = new ClassPathResource("address/cities.csv");
-        Reader in = new InputStreamReader(classPathResource.getInputStream());
+        Reader in = new InputStreamReader(classPathResource.getInputStream(), StandardCharsets.UTF_8);
 
         Iterable<CSVRecord> records = csvFormat.parse(in);
         for (CSVRecord record : records) {
@@ -95,7 +96,7 @@ public class AddressService {
     public void initA() throws IOException {
         log.info("init area data...");
         ClassPathResource classPathResource = new ClassPathResource("address/areas.csv");
-        Reader in = new InputStreamReader(classPathResource.getInputStream());
+        Reader in = new InputStreamReader(classPathResource.getInputStream(), StandardCharsets.UTF_8);
 
         Iterable<CSVRecord> records = csvFormat.parse(in);
         for (CSVRecord record : records) {

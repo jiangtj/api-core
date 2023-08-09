@@ -1,5 +1,6 @@
 package com.jiangtj.utils.apicore;
 
+import com.jiangtj.utils.apicore.address.AddressInfo;
 import com.jiangtj.utils.apicore.address.Area;
 import com.jiangtj.utils.apicore.address.City;
 import com.jiangtj.utils.apicore.address.Province;
@@ -18,6 +19,7 @@ public class MyRuntimeHints implements RuntimeHintsRegistrar {
         hints.serialization().registerType(Province.class);
         hints.serialization().registerType(City.class);
         hints.serialization().registerType(Area.class);
+        hints.serialization().registerType(AddressInfo.class);
     }
 
 }
