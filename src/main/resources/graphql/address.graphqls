@@ -1,0 +1,26 @@
+type Query {
+    provinces: [Province!]!
+    province(code: ID!): Province
+    city(code: ID!): City
+    area(code: ID!): Area
+}
+
+type Province {
+    code: ID!
+    name: String!
+    cities: [City!]!
+}
+
+type City {
+    code: ID!
+    name: String!
+    provinceCode: Int!
+    areas: [Area!]!
+}
+
+type Area {
+    code: ID!
+    name: String!
+    cityCode: Int!
+    provinceCode: Int!
+}

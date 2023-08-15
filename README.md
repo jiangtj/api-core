@@ -28,3 +28,12 @@ docker run -p 8066:8066 -d ghcr.io/jiangtj/api-core-native:latest
 - `address/areas` 区列表
 - `address/areas/{code}` 使用市code查询区
 - `address/{code}` 依据指定code，查询详情
+- GraphQl
+  ```graphql
+  type Query {
+    provinces: [Province!]!
+    province(code: ID!): Province
+    city(code: ID!): City
+    area(code: ID!): Area
+  }
+  ```
